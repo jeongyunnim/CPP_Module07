@@ -1,9 +1,9 @@
-NAME 		=	ex00
+NAME 		=	ex02
 
 CXX 		=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-INCS		=	./whatever.hpp\
+INCS		=	./Array.hpp\
 				../Colors.hpp\
 				
 SRCS		=	./main.cpp\
@@ -18,7 +18,7 @@ all:	$(NAME)
 $(NAME): $(OBJS) $(INCS)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 
-%o:	%.cpp
+%o:	%.cpp $(INCS)
 	$(CXX) $(CXXFLAGS) $(INCS) -c $^ -o $@
 
 clean: 
