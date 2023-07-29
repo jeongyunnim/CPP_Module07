@@ -15,62 +15,67 @@ const std::string Colors::BoldMagenta = "\033[1m\033[35m";
 const std::string Colors::BoldCyan = "\033[1m\033[36m";
 const std::string Colors::BoldWhite = "\033[1m\033[37m";
 
-void Colors::printRed(std::string target)
+std::string Colors::RedString(std::string target)
 {
-	std::cout << Red << target << Reset;
+	return (Red + target + Reset);
 }
 
-void Colors::printGreen(std::string target)
+std::string Colors::GreenString(std::string target)
 {
-	std::cout << Green << target << Reset;
+	return (Green + target + Reset);
 }
 
-void Colors::printYellow(std::string target)
+std::string Colors::YellowString(std::string target)
 {
-	std::cout << Yellow << target << Reset;
+	return (Yellow + target + Reset);
 }
 
-void Colors::printBlue(std::string target)
+std::string Colors::BlueString(std::string target)
 {
-	std::cout << Blue << target << Reset;
+	return (Blue + target + Reset);
 }
 
-void Colors::printMagenta(std::string target)
+std::string Colors::MagentaString(std::string target)
 {
-	std::cout << Magenta << target << Reset;
+	return (Magenta + target + Reset);
 }
 
-void Colors::printCyan(std::string target)
+std::string Colors::CyanString(std::string target)
 {
-	std::cout << Cyan << target << Reset;
+	return (Cyan + target + Reset);
 }
 
-void Colors::printBoldRed(std::string target)
+std::string Colors::BoldWhiteString(std::string target)
 {
-	std::cout << BoldRed << target << Reset;
+	return (BoldWhite + target + Reset);
 }
 
-void Colors::printBoldGreen(std::string target)
+std::string Colors::BoldRedString(std::string target)
 {
-	std::cout << BoldGreen << target << Reset;
+	return (BoldRed + target + Reset);
 }
 
-void Colors::printBoldYellow(std::string target)
+std::string Colors::BoldGreenString(std::string target)
 {
-	std::cout << BoldYellow << target << Reset;
+	return (BoldGreen + target + Reset);
 }
 
-void Colors::printBoldBlue(std::string target)
+std::string Colors::BoldYellowString(std::string target)
 {
-	std::cout << BoldBlue << target << Reset;
+	return (BoldYellow + target + Reset);
 }
 
-void Colors::printBoldMagenta(std::string target)
+std::string Colors::BoldBlueString(std::string target)
 {
-	std::cout << BoldMagenta << target << Reset;
+	return (BoldBlue + target + Reset);
 }
 
-void Colors::printBoldCyan(std::string target)
+std::string Colors::BoldMagentaString(std::string target)
 {
-	std::cout << BoldCyan << target << Reset;
+	return (BoldMagenta + target + Reset);
+}
+
+std::string Colors::BoldCyanString(std::string target)
+{
+	return (BoldCyan + target + Reset);
 }
