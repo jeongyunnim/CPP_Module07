@@ -5,10 +5,10 @@
 template <typename T>
 void    swap(T& t1, T& t2)
 {
-	T *temp = &t1;
+	T temp = t1;
 
-	&t1 = &t2;
-	&t2 = temp;
+	t1 = t2;
+	t2 = temp;
 }
 
 template <typename T>
@@ -21,7 +21,7 @@ T&    min(T& t1,T& t2)
 }
 
 template <typename T>
-T&    min(const T& t1,const T& t2)
+const T&    min(const T& t1,const T& t2)
 {
 	if (t1 < t2)
 		return (t1);
@@ -30,7 +30,16 @@ T&    min(const T& t1,const T& t2)
 }
 
 template <typename T>
-T&    max(const T& t1,const T& t2)
+T&    max(T& t1,T& t2)
+{
+	if (t1 > t2)
+		return (t1);
+	else
+		return (t2);
+}
+
+template <typename T>
+const T&    max(const T& t1,const T& t2)
 {
 	if (t1 > t2)
 		return (t1);
