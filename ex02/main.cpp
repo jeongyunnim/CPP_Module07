@@ -6,7 +6,7 @@
 
 int subjectRequired(void)
 {
-	const Array<int> numbers(MAX_VAL);
+	Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
 	srand(time(NULL));
 	for (int i = 0; i < MAX_VAL; i++)
@@ -68,30 +68,44 @@ int main(int, char**)
 		std::cout << Colors::BoldRed << "failed subject requirements" << Colors::Reset << std::endl;
 	else
 		std::cout << Colors::BoldGreen << "successed subject requirements" << Colors::Reset << std::endl;
+	std::cout << Colors::BoldWhiteString("\n------------------------<<additional test>>------------------------\n") << std::endl;
 	{
-		std::cout << Colors::BoldWhiteString("\n------------------------<<additional test>>------------------------\n") << std::endl;
-		const size_t	arr_size = 26;
-		Array<std::string>	stringArr(arr_size);
-		std::string			stringArrMirror[arr_size];
+		const size_t	arrSize = 26;
+		Array<std::string>	stringArr(arrSize);
+		std::string			stringArrMirror[arrSize];
 
-		for (size_t i = 0; i < arr_size; i++)
+		for (size_t i = 0; i < arrSize; i++)
 		{
 			stringArr[i] += ('A' + i);
 			stringArrMirror[i] += ('A' + i);
 		}
-		for (size_t i = 0; i < arr_size; i++)
+		for (size_t i = 0; i < arrSize; i++)
 		{
-			std::cout << Colors::Cyan << "[string] " << i << ": " << Colors::Reset << stringArr[i] << std::endl;
-			std::cout << Colors::Magenta << "[Mirror] " << i << ": " << Colors::Reset << stringArrMirror[i] << '\n' << std::endl;
+			std::cout << Colors::Cyan << "[string] " << i << ": " << Colors::Reset << stringArr[i] << \
+				Colors::Magenta << "[Mirror] " << i << ": " << Colors::Reset << stringArrMirror[i] << std::endl;
 		}
 
 		Array<std::string>	*temp = new Array<std::string>(stringArr);
-		for (size_t i = 0; i < arr_size; i++)
+		for (size_t i = 0; i < arrSize; i++)
 		{
-			std::cout << Colors::Cyan << "[string] " << i << ": " << Colors::Reset << stringArr[i] << std::endl;
-			std::cout << Colors::Magenta << "[Temp] " << i << ": " << Colors::Reset << (*temp)[i] << '\n' << std::endl;
+			std::cout << Colors::Cyan << "[string] " << i << ": " << Colors::Reset << stringArr[i] << \
+				Colors::Magenta << "[Temp] " << i << ": " << Colors::Reset << (*temp)[i] << std::endl;
 		}
 		delete temp;
 	}
+	std::cout << Colors::BoldWhiteString("\n------------------------<<const Array instence test>>------------------------\n") << std::endl;
+	{
+		const size_t				arrSize = 26;
+		Array<std::string>			stringArr(arrSize);
+		std::string					stringArrMirror[arrSize];
 
+		for (size_t i = 0; i < arrSize; i++)
+		{
+			stringArr[i] += ('A' + i);
+		}
+		const Array<std::string>	stringArrConst(stringArr);
+		for (size_t i = 0; i < arrSize; i++)
+			std::cout << "[" << i <<"]: " << stringArrConst[i] << std::endl;
+	}
+	return (0);
 }

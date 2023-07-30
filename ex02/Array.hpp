@@ -37,7 +37,7 @@ private:
 template <typename T>
 const char *Array<T>::OutOfRange::what(void) const throw()
 {
-	return ("Error: out of range");
+	return ("Out of range");
 }
 
 template <typename T>
