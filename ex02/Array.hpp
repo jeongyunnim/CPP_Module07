@@ -20,6 +20,7 @@ public:
 	Array<T>& operator=(const Array<T>& obj);
 	Array<T>& operator=(Array<T>& obj);
 	T& operator[](int size);
+	const T& operator[](int size) const;
 	Array<T>(const Array<T>& obj);
 	Array<T>(Array<T>& obj);
 
@@ -115,6 +116,15 @@ Array<T>::Array(Array<T>& obj)
 
 template <typename T>
 T& Array<T>::operator[](int size)
+{
+	if (size < 0 || size >= _size)
+		throw (OutOfRange());
+	else
+		return (_arrPtr[size]);
+}
+
+template <typename T>
+const T& Array<T>::operator[](int size) const
 {
 	if (size < 0 || size >= _size)
 		throw (OutOfRange());
