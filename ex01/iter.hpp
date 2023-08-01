@@ -4,8 +4,8 @@
 #include <iostream>
 #include "../Colors.hpp"
 
-template <typename T>
-void iter(T arr[], size_t len, void (*fp)(T&))
+template <typename T1, typename T2>
+void iter(T1 arr[], size_t len, T2 *fp)
 {
 	for (size_t i = 0; i < len; i++)
 	{

@@ -107,5 +107,9 @@ int main(int, char**)
 		for (size_t i = 0; i < arrSize; i++)
 			std::cout << Colors::Blue << "[" << i <<"]: " << Colors::Reset << stringArrConst[i] << std::endl;
 	}
+	Array<std::string>	stringArr;
+	Array<std::string>	stringArr1(stringArr);
+	Array<std::string>	stringArr2(stringArr1);
+	Array<int>			intArr2(0);
 	return (0);
 }

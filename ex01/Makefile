@@ -6,7 +6,7 @@ CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 INCS		=	./iter.hpp\
 				../Colors.hpp\
 				
-SRCS		=	./main.cpp\
+SRCS		=	./ex01.cpp\
 				../Colors.cpp
 
 OBJS		=	$(SRCS:%.cpp=%.o)
