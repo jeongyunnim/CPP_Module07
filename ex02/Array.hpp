@@ -24,7 +24,6 @@ public:
 	Array<T>(const Array<T>& obj);
 	Array<T>(Array<T>& obj);
 
-
 	int	size(void) const;
 
 private:
@@ -43,21 +42,19 @@ const char *Array<T>::OutOfRange::what(void) const throw()
 template <typename T>
 Array<T>::Array(void)
 	:	_size(0)
-	,	_arrPtr(NULL)
+	,	_arrPtr(new T[0]())
 {}
 
 template <typename T>
 Array<T>::Array(unsigned int n)
 	:	_size(n)
-{
-	_arrPtr = new T[n];
-}
+	,	_arrPtr(new T[n]())
+{}
 
 template <typename T>
 Array<T>::~Array(void)
 {
-	if (_arrPtr != NULL)
-		delete[] _arrPtr;
+	delete[] _arrPtr;
 }
 
 template <typename T>
@@ -65,17 +62,11 @@ Array<T>& Array<T>::operator=(const Array<T>& obj)
 {
 	if (this == &obj)
 		return *this;
-	if (_arrPtr != NULL)
-		delete[] _arrPtr;
+	delete[] _arrPtr;
 	_size = obj._size;
-	if (_size == 0)
-		_arrPtr = NULL;
-	else
-	{
-		_arrPtr = new T[_size];
-		for (int i = 0; i < _size; i++)
-			_arrPtr[i] = obj._arrPtr[i];
-	}
+	_arrPtr = new T[_size];
+	for (int i = 0; i < _size; i++)
+		_arrPtr[i] = obj._arrPtr[i];
 	return (*this);
 }
 
@@ -84,34 +75,32 @@ Array<T>& Array<T>::operator=(Array<T>& obj)
 {
 	if (this == &obj)
 		return *this;
-	if (_arrPtr != NULL)
-		delete[] _arrPtr;
+	delete[] _arrPtr;
 	_size = obj._size;
-	if (_size == 0)
-		_arrPtr = NULL;
-	else
-	{
-		_arrPtr = new T[_size];
-		for (int i = 0; i < _size; i++)
-			_arrPtr[i] = obj._arrPtr[i];
-	}
+	_arrPtr = new T[_size];
+	for (int i = 0; i < _size; i++)
+		_arrPtr[i] = obj._arrPtr[i];
 	return (*this);
 }
 
 template <typename T>
 Array<T>::Array(const Array<T>& obj)
 	:	_size(0)
-	,	_arrPtr(NULL)
 { 
-	*this = obj;
+	_size = obj._size;
+	_arrPtr = new T[_size];
+	for (int i = 0; i < _size; i++)
+		_arrPtr[i] = obj._arrPtr[i];
 }
 
 template <typename T>
 Array<T>::Array(Array<T>& obj)
 	:	_size(0)
-	,	_arrPtr(NULL)
 {
-	*this = obj;
+	_size = obj._size;
+	_arrPtr = new T[_size];
+	for (int i = 0; i < _size; i++)
+		_arrPtr[i] = obj._arrPtr[i];
 }
 
 template <typename T>
