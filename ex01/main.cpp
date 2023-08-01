@@ -27,7 +27,7 @@ int main(void)
 {
 	{
 		std::cout << Colors::BoldWhiteString("\n-----------------<<int array test>>-----------------\n") << std::endl;
-		const size_t	arr_size = 20;
+		const size_t	arr_size = 100;
 		int 			arr[arr_size];
 
 		for (size_t i = 0; i < arr_size; i++)
@@ -51,7 +51,10 @@ int main(void)
 		std::string		highfiveArr[arr_size];
 		
 		for (size_t i = 0; i < arr_size; i++)
+		{
+			highfiveArr[i] = i + 'A';
 			std::cout << Colors::Cyan << "[original string] " << Colors::Reset << i << ": " << highfiveArr[i] << std::endl;
+		}
 		iter(highfiveArr, arr_size, replaceHighfive);
 		for (size_t i = 0; i < arr_size; i++)
 			std::cout << Colors::Cyan << "[replaced string] " << Colors::Reset << i << ": " << highfiveArr[i] << std::endl;

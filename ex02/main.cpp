@@ -82,14 +82,14 @@ int main(int, char**)
 		for (size_t i = 0; i < arrSize; i++)
 		{
 			std::cout << Colors::Cyan << "[string] " << i << ": " << Colors::Reset << stringArr[i] << \
-				Colors::Magenta << "[Mirror] " << i << ": " << Colors::Reset << stringArrMirror[i] << std::endl;
+				Colors::Magenta << " [Mirror] " << i << ": " << Colors::Reset << stringArrMirror[i] << std::endl;
 		}
 
 		Array<std::string>	*temp = new Array<std::string>(stringArr);
 		for (size_t i = 0; i < arrSize; i++)
 		{
 			std::cout << Colors::Cyan << "[string] " << i << ": " << Colors::Reset << stringArr[i] << \
-				Colors::Magenta << "[Temp] " << i << ": " << Colors::Reset << (*temp)[i] << std::endl;
+				Colors::Magenta << " [Temp] " << i << ": " << Colors::Reset << (*temp)[i] << std::endl;
 		}
 		delete temp;
 	}
@@ -105,7 +105,7 @@ int main(int, char**)
 		}
 		const Array<std::string>	stringArrConst(stringArr);
 		for (size_t i = 0; i < arrSize; i++)
-			std::cout << "[" << i <<"]: " << stringArrConst[i] << std::endl;
+			std::cout << Colors::Blue << "[" << i <<"]: " << Colors::Reset << stringArrConst[i] << std::endl;
 	}
 	return (0);
 }
